@@ -5,6 +5,7 @@ public class Asignaturas {
 	protected String nombre;
 	protected int horas;
 	
+	//CONSTRUCTORS
 	public Asignaturas () {}
 	
 	public Asignaturas(String nombre, int horas) {
@@ -12,7 +13,8 @@ public class Asignaturas {
 		this.nombre = nombre;
 		this.horas = horas;
 	}
-
+	
+	//SET AND GETTERS
 	public String getNombre() {
 		return nombre;
 	}
