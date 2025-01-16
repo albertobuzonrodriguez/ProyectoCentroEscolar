@@ -7,8 +7,37 @@ public class Curso {
 			Alumno [] alumnos = altaAlumnos(asignaturas);
 			Profesor [] profesores = altaProfesores(asignaturas);
 			comenzarCurso(asignaturas, alumnos, profesores);
+			Personas [] personas = obtenerPersonas(alumnos, profesores);
+			
+			//PERSONAS: LA CLASE
+			//PERSONA: EL OBJETO-VARIABLE EN LA QUE GUARDAS EL VALOR DEL ARRAY
+			//PERSONAS: EL ARRAY QUE TE DEVUELVE OBTENER PERSONAS
+			//SEPARADO POR DOS PUNTOS PARA INDICAR QUE LO COGES DE UN ARRAY
+			for (Personas persona: personas) {
+				System.out.println("Soy "+ persona.getNombre());
+				persona.hacerExamen();
+				
+				//SI PERSONA ES UN PROFESOR ME HACE ESTO:
+				if (persona instanceof Profesor) {
+					//SE CASTEA PERSONA COMO PROFESOR IGUAL QUE (INT)CHAR = 65;
+					System.out.println(((Profesor) persona).getIban()); 
+				}
+			}
 		}
 		
+		
+		
+		protected Personas [] obtenerPersonas (Alumno[] alumnos, Profesor [] profesores) {
+			Personas [] personas = new Personas [alumnos.length+profesores.length];
+			int i = 0;
+			for (Alumno alumno: alumnos) {
+				personas[i++] = alumno;
+			}
+			for (Profesor profesor: profesores) {
+				personas[i++] = profesor;
+			}
+			return personas;
+		}
 		protected Profesor [] altaProfesores(Asignaturas [] asignaturas) {
 			Profesor [] profesores = new Profesor[4];
 			Asignaturas [] asignaturasGuillamon = {asignaturas[0], asignaturas[4]};
@@ -69,7 +98,7 @@ public class Curso {
 		}
 		
 		protected void presentarProfesores (Profesor [] profesores, Asignaturas [] asignaturas) {
-			System.out.println("Presentación de los profesores");
+			System.out.println("Presentación de los profesores: ");
 			for (int i = 0; i < profesores.length; i++) {
 				System.out.println("Soy el profesor "+profesores[i].getNombre()+ " y mi IBAN es: "+profesores[i].getIban());
 				presentarAsignaturas(profesores[i].getAsignatura());

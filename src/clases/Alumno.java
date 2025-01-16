@@ -18,6 +18,7 @@ public class Alumno extends Personas {
 				+ ", asignatura=" + Arrays.toString(asignatura) + "]";
 	}
 	
+	@Override
 	public void hacerExamen () {
 		System.out.println("Soy alumno y hago examenes para suspender");
 	}

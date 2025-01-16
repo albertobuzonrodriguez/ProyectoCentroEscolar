@@ -2,7 +2,7 @@ package clases;
 
 import java.util.Arrays;
 
-public abstract class Personas {
+public abstract class Personas implements PersonasAcciones{
 
 	protected String nombre;
 	protected String primerApellido;
@@ -72,5 +72,5 @@ public abstract class Personas {
 		System.out.println("Llego a clase");
 	}
 	
-	public abstract void hacerExamen ();
+
 }
